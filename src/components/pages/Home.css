@@ -1,3 +1,29 @@
+.banner .content-wrapper {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem 2rem;
+}
+
+.banner .content-wrapper p {
+    color: var(--neutral-color);
+    font-family: var(--body-font);
+    font-weight: var(--font-semi-bold);
+    font-size: var(--text-l);
+    margin-left: 1rem;
+}
+
+.banner .content-wrapper .company-name {
+    color: var(--icon-color);
+}
+
+.banner {
+    width: 100%;
+    background-color: var(--banner-background-color);
+}
+
 .banner-icon {
     color: var(--icon-color);
 }
