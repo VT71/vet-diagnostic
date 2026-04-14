@@ -1,5 +1,36 @@
-:root {
+@font-face {
+  font-family: 'Inter';
+  src: local('Inter'), url(assets/fonts/Inter/static/Inter_18pt-Medium.ttf) format('truetype');
+}
 
+@font-face {
+  font-family: 'Manrope';
+  src: local('Manrope'), url(assets/fonts/Manrope/static/Manrope-Medium.ttf) format('truetype');
+}
+
+:root {
+  /* Colors */
+  --primary-color: #005A9E;
+  --secondary-color: #438C5E;
+  --tertiary-color: #00ACC1;
+  --icon-color: #A7F4BD;
+  --neutral-color: #F5F7F9;
+  --logo-color: #0F172A;
+  --link-base-color: #475569;
+  --link-hover-color: #2564eb;
+  --link-active-color: #1D4ED8;
+  --cta-btn-gradient: linear-gradient(135deg, rgb(0, 66, 119) 0%, rgb(0, 90, 158) 100%);
+  --cta-btn-hover-gradient: linear-gradient(135deg, rgb(28, 90, 141) 0%, rgb(37, 125, 191) 100%);
+
+  /* Fonts */
+  --headline-font: 'Manrope';
+  --body-font: 'Inter';
+  --font-bold: 700;
+  --font-medium: 500;
+  --text-xl: 1.25rem;
+  --text-l: 1rem;
+  --text-m: 0.875rem;
+  --text-s: 0.75rem;
 }
 
 #root {
@@ -19,4 +50,21 @@ body {
 
 p {
   margin: 0;
+}
+
+.cta-btn {
+  cursor: pointer;
+  color: var(--neutral-color);
+  font-family: var(--body-font);
+  font-weight: var(--font-bold);
+  font-size: var(--text-l);
+  box-shadow: none;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.5rem 1.5rem;
+  background-image: var(--cta-btn-gradient);
+}
+
+.cta-btn:hover {
+  background-image: var(--cta-btn-hover-gradient);
 }
