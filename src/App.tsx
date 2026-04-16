@@ -6,13 +6,13 @@ import Home from './components/pages/Home'
 function App() {
 
   return (
-    <>
+    <div className="app">
       <NavBar />
       <Routes>
         <Route index element={<Home />} />
       </Routes>
       <footer></footer>
-    </>
+    </div>
   )
 }
 

@@ -1,6 +1,15 @@
+nav {
+    position: sticky;
+    background-color: color-mix(in srgb, var(--neutral-color) 95%, transparent);
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
 nav .content-wrapper {
     margin: auto;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
@@ -16,16 +25,14 @@ ul {
 }
 
 .logo {
-    font-family: var(--headline-font);
+    font-family: var(--headline-bold-font);
     color: var(--logo-color);
-    font-weight: var(--font-bold);
     font-size: var(--text-xl);
 }
 
 .nav-link {
     font-family: var(--body-font);
     color: var(--link-base-color);
-    font-weight: var(--font-medium);
 }
 
 .nav-link:hover {
@@ -34,7 +41,7 @@ ul {
 
 .nav-link.active {
     color: var(--link-active-color);
-    font-weight: var(--font-bold);
+    font-family: var(--headline-bold-font);
 }
 
 .nav-link .active-line {

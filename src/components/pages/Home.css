@@ -1,6 +1,12 @@
+.home {
+    height: 200vh;
+}
+
 .banner .content-wrapper {
     margin: auto;
     display: flex;
+    flex-direction: row;
+    gap: 0;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -9,8 +15,7 @@
 
 .banner .content-wrapper p {
     color: var(--neutral-color);
-    font-family: var(--body-font);
-    font-weight: var(--font-semi-bold);
+    font-family: var(--body-semibold-font);
     font-size: var(--text-l);
     margin-left: 1rem;
 }
