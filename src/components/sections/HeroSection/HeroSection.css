@@ -1,0 +1,86 @@
+.hero-section {
+    position: relative;
+    background: var(--hero-section-background);
+    width: 100%;
+    min-height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.img-background {
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    margin-left: 40%;
+    background-image: url('../../../images/microscope-background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.hero-section .content-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    height: 100%;
+    gap: 2rem;
+}
+
+h1,
+p {
+    margin: 0;
+}
+
+.hero-section .content-wrapper h1 {
+    font-family: var(--headline-extrabold-font);
+    color: var(--text-primary);
+    font-size: var(--text-5xl);
+    letter-spacing: var(--tracking-lighter);
+    line-height: var(--extra-small-line-height);
+}
+
+.hero-section .content-wrapper h1 .text-secondary {
+    color: var(--text-secondary);
+}
+
+.hero-section .content-wrapper p {
+    color: var(--text-on-surface-variant);
+    font-family: var(--body-font);
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+}
+
+@media (max-width: 500px) {
+    .hero-section {
+        background: var(--hero-section-background-mobile);
+    }
+
+    .img-background {
+        margin-left: 50%;
+        width: 50%;
+    }
+
+    .hero-section .content-wrapper h1 {
+        font-size: var(--text-3xl);
+    }
+
+    .hero-section .content-wrapper p {
+        font-size: var(--text-m);
+        padding-right: 40%;
+    }
+
+    .hero-section .content-wrapper .cta-group {
+        width: 100%;
+        /* justify-content: space-between; */
+        flex-direction: column;
+    }
+
+    .hero-section .content-wrapper .cta-group .cta-btn {
+        width: 100%;
+        padding: var(--p-3) var(--p-4);
+        font-size: var(--text-m);
+    }
+}

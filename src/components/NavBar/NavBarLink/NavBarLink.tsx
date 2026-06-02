@@ -1,12 +1,10 @@
-import { Link } from "react-router";
-
-export default function NavBarLink({isActive, to, label}: {isActive: () => boolean, to: string, label: string}) {
+export default function NavBarLink(props: {isActive: () => boolean, to: string, label: string, type?: "mobile" | undefined}) {
     return (
         <>
-            <Link to={to} className={isActive() ? "nav-link active" : "nav-link"}>
-                {label}
-                {isActive() ? <div className="active-line"></div> : null}
-            </Link>
+            <a href={props.to} className={props.isActive() ? `nav-link ${props.type ?? ""} active` : `nav-link ${props.type ?? ""}`}>
+                {props.label}
+                {<div className={`active-line ${props.isActive() ? "active" : ""}`}></div>}
+            </a>
         </>
     );
 }

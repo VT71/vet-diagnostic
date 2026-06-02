@@ -1,6 +1,7 @@
 nav {
     position: sticky;
-    background-color: color-mix(in srgb, var(--neutral-color) 95%, transparent);
+    background-color: color-mix(in srgb, var(--bg-surface-container-lowest) 65%, transparent);
+    backdrop-filter: blur(20px);
     top: 0;
     width: 100%;
     z-index: 1000;
@@ -12,6 +13,26 @@ nav .content-wrapper {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding: 0.5rem 1.5rem;
+}
+
+nav .content-wrapper .side-container {
+    width: 200px;
+    position: relative;
+}
+
+nav .content-wrapper .side-container .mobile-menu {
+    display: none;
+}
+
+nav .content-wrapper>.side-container:first-child {
+    display: flex;
+    justify-content: flex-start;
+}
+
+nav .content-wrapper>.side-container:last-child {
+    display: flex;
+    justify-content: flex-end;
 }
 
 a {
@@ -24,15 +45,10 @@ ul {
     gap: 1.5rem;
 }
 
-.logo {
-    font-family: var(--headline-bold-font);
-    color: var(--logo-color);
-    font-size: var(--text-xl);
-}
-
 .nav-link {
     font-family: var(--body-font);
     color: var(--link-base-color);
+    transition: all 0.3s ease;
 }
 
 .nav-link:hover {
@@ -48,6 +64,44 @@ ul {
     display: block;
     width: 100%;
     height: 2px;
-    background-color: var(--link-active-color);
+    background-color: transparent;
     margin-top: 4px;
+    transition: all 0.3s ease;
+}
+
+.nav-link .active-line.active {
+    background-color: var(--link-active-color);
+}
+
+@media (max-width: 750px) {
+    nav {
+        display: flex;
+        align-items: center;
+    }
+
+    nav .content-wrapper ul,
+    nav .content-wrapper .side-container .cta-btn {
+        display: none;
+    }
+
+    nav .content-wrapper .side-container {
+        width: auto;
+    }
+
+    nav .content-wrapper .side-container .mobile-menu {
+        display: block;
+    }
+
+    .nav-link.mobile {
+        padding: var(--p-1) var(--p-3);
+        font-size: var(--text-m);
+    }
+
+    .nav-link.mobile.active {
+        font-family: var(--body-font);
+    }
+
+    .logo img {
+        height: 50px;
+    }
 }

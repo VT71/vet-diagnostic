@@ -1,7 +1,3 @@
-.home {
-    height: 200vh;
-}
-
 .banner .content-wrapper {
     margin: auto;
     display: flex;
@@ -21,7 +17,7 @@
 }
 
 .banner .content-wrapper .company-name {
-    color: var(--icon-color);
+    color: var(--text-secondary-fixed);
 }
 
 .banner {
@@ -30,5 +26,15 @@
 }
 
 .banner-icon {
-    color: var(--icon-color);
+    color: var(--text-secondary-fixed);
+}
+
+@media (max-width: 500px) { 
+    .banner .content-wrapper .banner-icon {
+        display: none;
+    }
+
+    .banner .content-wrapper p {
+        font-size: var(--text-s);
+    }
 }

@@ -1,10 +1,18 @@
-import { Link, NavLink, useLocation } from 'react-router';
+import { useLocation } from 'react-router';
 import './NavBar.css';
 import NavBarLink from './NavBarLink/NavBarLink';
+import MobileMenu from './MobileMenu/MobileMenu';
 
 export default function NavBar() {
+    const navLinkData = [
+        { to: "/#investigations", label: "Investigații" },
+        { to: "/#faq", label: "Întrebări frecvente" },
+        { to: "/#contact", label: "Contacte" }
+    ];
+
     const location = useLocation();
     const isActiveLink = (path: string, hash: string = "") => {
+        console.log("Checking against:", path, hash);
         const currentPath = location.pathname;
         const currentHash = location.hash;
 
@@ -14,22 +22,26 @@ export default function NavBar() {
     return (
         <nav>
             <div className="content-wrapper">
-                <Link to="/" className="logo">IT Vet Diagnostic</Link>
+                <div className="side-container">
+                    <a href="/#hero" className="logo">
+                        <img src="images/vet-logo.png" alt="IT Vet Diagnostic Logo" />
+                    </a>
+                </div>
                 <ul>
-                    <li>
-                        <NavBarLink isActive={() => isActiveLink("/")} to="/" label="Diagnostic" />
-                    </li>
-                    <li>
-                        <NavBarLink isActive={() => isActiveLink("/ferme")} to="/ferme" label="Ferme" />
-                    </li>
-                    <li>
-                        <NavBarLink isActive={() => isActiveLink("/cabinete-veterinare")} to="/cabinete-veterinare" label="Cabinete Veterinare" />
-                    </li>
-                    <li>
-                        <NavBarLink isActive={() => isActiveLink("/", "#intrebari-frecvente")} to="/#intrebari-frecvente" label="Întrebări frecvente" />
-                    </li>
+                    {navLinkData.map((link, index) => (
+                        <li key={index}>
+                            <NavBarLink isActive={() => isActiveLink("/", `#${link.to.split("#")[1]}`)} to={link.to} label={link.label} />
+                        </li>
+                    ))}
                 </ul>
-                <a href="tel:+37369211976" className="cta-btn">Comandă Teste</a>
+                <div className="side-container">
+                    <MobileMenu>
+                        {navLinkData.map((link, index) => (
+                            <NavBarLink key={index} isActive={() => isActiveLink("/", `#${link.to.split("#")[1]}`)} to={link.to} label={link.label} type="mobile" />
+                        ))}
+                    </MobileMenu>
+                    <a href="tel:+37369211976" className="cta-btn">Comandă Teste</a>
+                </div>
             </div>
-        </nav>);
+        </nav >);
 }

@@ -1,31 +1,31 @@
 @font-face {
   font-family: 'Inter';
-  src: local('Inter'), url(assets/fonts/Inter/static/Inter_18pt-Regular.ttf) format('truetype');
+  src: local('Inter'), url(/fonts/Inter/static/Inter_18pt-Regular.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'Inter-SemiBold';
-  src: local('Inter-SemiBold'), url(assets/fonts/Inter/static/Inter_18pt-SemiBold.ttf) format('truetype');
+  src: local('Inter-SemiBold'), url(/fonts/Inter/static/Inter_18pt-SemiBold.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'Inter-Bold';
-  src: local('Inter-Bold'), url(assets/fonts/Inter/static/Inter_18pt-Bold.ttf) format('truetype');
+  src: local('Inter-Bold'), url(/fonts/Inter/static/Inter_18pt-Bold.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'Manrope';
-  src: local('Manrope'), url(assets/fonts/Manrope/static/Manrope-Medium.ttf) format('truetype');
+  src: local('Manrope'), url(/fonts/Manrope/static/Manrope-Medium.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'Manrope-Bold';
-  src: local('Manrope-Bold'), url(assets/fonts/Manrope/static/Manrope-Bold.ttf) format('truetype');
+  src: local('Manrope-Bold'), url(/fonts/Manrope/static/Manrope-Bold.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'Manrope-ExtraBold';
-  src: local('Manrope-ExtraBold'), url(assets/fonts/Manrope/static/Manrope-ExtraBold.ttf) format('truetype');
+  src: local('Manrope-ExtraBold'), url(/fonts/Manrope/static/Manrope-ExtraBold.ttf) format('truetype');
 }
 
 :root {
@@ -33,19 +33,24 @@
   --primary-color: #005A9E;
   --secondary-color: #438C5E;
   --tertiary-color: #00ACC1;
-  --icon-color: #A7F4BD;
+  --text-secondary-fixed: #A7F4BD;
   --neutral-color: #ffffff;
   --logo-color: #0F172A;
   --link-base-color: #475569;
   --link-hover-color: #2564eb;
   --link-active-color: #1D4ED8;
   --banner-background-color: #004277;
-  --headline-color: #004277;
-  --headline-secondary-color: #1f6b41;
+  --text-primary: #004277;
+  --text-secondary: #1f6b41;
   --text-on-surface-variant: #414750;
   --cta-btn-gradient: linear-gradient(135deg, rgb(0, 66, 119) 0%, rgb(0, 90, 158) 100%);
   --cta-btn-hover-gradient: linear-gradient(135deg, rgb(28, 90, 141) 0%, rgb(37, 125, 191) 100%);
   --tw-bg-opacity: 1;
+  --bg-surface-container: #e5e7ea;
+  --bg-surface-container-low: #f2f4f6;
+  --bg-surface-container-lowest: #ffffff;
+  --bg-primary-fixed: #d3e4ff;
+  --bg-secondary-container: #a7f4bd;
 
   /* Fonts */
   --headline-font: 'Manrope';
@@ -54,8 +59,11 @@
   --body-font: 'Inter';
   --body-semibold-font: 'Inter-SemiBold';
   --body-bold-font: 'Inter-Bold';
+  --text-5xl: 4rem;
+  --text-4xl: 2.25rem;
+  --text-3xl: 1.875rem;
+  --text-2xl: 1.5rem;
   --text-xl: 1.25rem;
-  --text-5xl: 4.5rem;
   --text-lg: 1.125rem;
   --text-l: 1rem;
   --text-m: 0.875rem;
@@ -69,9 +77,29 @@
 
   /* Background Styling */
   --hero-section-background: linear-gradient(90deg, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 0.1) 60%, rgba(255, 255, 255, 0) 100%);
+  --hero-section-background-mobile: linear-gradient(90deg, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.1) 80%, rgba(255, 255, 255, 0) 100%);
 
   /* Layout */
   --max-content-width: 1126px;
+  --rounded-lg: 0.5rem;
+  --rounded-xl: 0.75rem;
+  --rounded-2xl: 1rem;
+  --m-12: 3rem;
+  --m-10: 2.5rem;
+  --m-8: 2rem;
+  --m-6: 1.5rem;
+  --m-4: 1rem;
+  --m-3: 0.75rem;
+  --p-24: 6rem;
+  --p-20: 5rem;
+  --p-12: 3rem;
+  --p-10: 2.5rem;
+  --p-8: 2rem;
+  --p-6: 1.5rem;
+  --p-4: 1rem;
+  --p-3: 0.75rem;
+  --p-2: 0.5rem;
+  --p-1: 0.25rem;
 }
 
 #root {
@@ -81,7 +109,14 @@
   min-height: 100svh;
   display: flex;
   flex-direction: column;
+
+}
+
+html,
+body,
+* {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -90,6 +125,19 @@ body {
 
 p {
   margin: 0;
+}
+
+.logo {
+  font-family: var(--headline-bold-font);
+  color: var(--logo-color);
+  font-size: var(--text-xl);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo img {
+  height: 80px;
 }
 
 .cta-btn {
@@ -149,5 +197,69 @@ p {
 
 .content-wrapper {
   max-width: var(--max-content-width);
-  padding: 0.5rem 1.5rem;
+  width: 100%;
+  padding: 6rem 2rem;
+  margin: auto;
+  display: flex;
+}
+
+.section-heading {
+  margin: auto;
+  color: var(--text-primary);
+  font-family: var(--headline-bold-font);
+  font-size: var(--text-4xl);
+  margin-bottom: var(--m-12);
+}
+
+/* Responsiveness Properties */
+
+@media (max-width: 500px) {
+  .content-wrapper {
+    padding: var(--p-12) var(--p-4);
+  }
+
+  .MuiButtonBase-root.MuiAccordionSummary-root {
+    padding: var(--p-4) !important;
+  }
+}
+
+.section-heading {
+  font-size: var(--text-3xl);
+  margin-bottom: var(--m-8);
+}
+
+/* MUI Custom Elements */
+.MuiPaper-root.MuiAccordion-root,
+.MuiPaper-root.MuiAccordion-root:last-of-type,
+.MuiPaper-root.MuiAccordion-root:first-of-type {
+  border-radius: var(--rounded-2xl);
+}
+
+.MuiPaper-root.MuiAccordion-root::before {
+  display: none !important;
+}
+
+.MuiButtonBase-root.MuiAccordionSummary-root {
+  padding: var(--p-6) !important;
+  background-color: var(--bg-surface-container-lowest) !important;
+  border-radius: var(--rounded-2xl) !important;
+}
+
+.MuiAccordionSummary-content {
+  margin: 0 !important;
+}
+
+.MuiAccordionDetails-root {
+  padding: 0 var(--p-6) var(--p-6) var(--p-6) !important;
+}
+
+.MuiButtonBase-root.MuiIconButton-root {
+  padding: 0 !important;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.MuiList-root.MuiMenu-list {
+  display: flex;
+  flex-direction: column;
 }

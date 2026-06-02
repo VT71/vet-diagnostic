@@ -4,7 +4,7 @@ import PhoneIcon from '@mui/icons-material/Phone';
 
 export default function HeroSection() {
     return (
-        <section className="hero-section">
+        <section id="hero" className="hero-section">
             <div className="img-background"></div>
             <div className="content-wrapper">
                 <h1>Partenerul tău de <br />încredere în <br />excelența <br /> <span className="text-secondary">diagnosticului <br /> veterinar.</span></h1>
@@ -14,8 +14,8 @@ export default function HeroSection() {
                         <Icon component={PhoneIcon} />
                         Comandă Teste
                     </a>
-                    <a className="cta-btn lg secondary">
-                        Vezi Lista de Prețuri
+                    <a href="/#investigations" className="cta-btn lg secondary">
+                        Vezi Listele Complete
                     </a>
                 </div>
             </div>

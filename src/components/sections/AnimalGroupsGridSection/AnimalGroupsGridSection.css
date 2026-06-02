@@ -1,0 +1,24 @@
+.animal-groups-grid-section {
+    width: 100%;
+}
+
+.animal-groups-grid-section .content-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.animal-groups-grid-section .content-wrapper .cards-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 100%;
+}
+
+@media (max-width: 500px) {
+    .animal-groups-grid-section .content-wrapper .cards-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+}
