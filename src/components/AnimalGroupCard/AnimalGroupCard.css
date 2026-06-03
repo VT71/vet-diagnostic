@@ -7,6 +7,13 @@
     align-items: flex-start;
     text-align: left;
     position: relative;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.animal-group-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .main-content {
@@ -134,7 +141,7 @@
     margin-bottom: var(--m-4);
 }
 
-@media (max-width: 500px) { 
+@media (max-width: 500px) {
     .animal-group-card {
         width: 100%;
     }
