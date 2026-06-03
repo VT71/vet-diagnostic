@@ -56,7 +56,6 @@ export default function AnimalGroupCard({ title, investigationList, backgroundIm
                     style={{ border: 'none' }}
                 />
                 {/* ))} */}
-                {/* TODO: add pdf external link if iframe doesn't work on some browsers */}
             </div>
         </Modal>
     </div>);
